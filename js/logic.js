@@ -61,22 +61,34 @@ document.onkeyup = function(event) {
 function updateCanvas() {
   Object.keys(keysPressed).forEach(function(direction) {
     if (keysPressed[direction]) {
-      player.move(direction);
+      mouse.move(direction);
     }
   });
-  if (player.isDead(cat.kitty)) {
-    alert("You've lost!");
-    location.reload();
-    cat.kittyCounter = 0;
+  if (mouse.isDead(cat.kitty)) {
+    // alert("You've lost!");
+    // location.reload();
+    // Cat.kittyCounter = 0;
   }
   ctx.fillStyle = "black";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  player.draw();
+
+  mouse.draw();
+
   cat.draw();
-  cheese.shuffleX;
-  cheese.shuffleY;
-  cheese.draw();
   cat.move();
+
+  cheese.draw();
+  // cheese.move();
+
+  // if (mouse.eatCheese(cheese.cheeseArray)) {
+  //   alert("test");
+  //   mouse.addOptionCheese(cheese.name);
+  // }
 
   requestAnimationFrame(updateCanvas);
 }
+
+setInterval(function() {
+  cheese.shuffle();
+  cheese.createCheese();
+}, 2000);
