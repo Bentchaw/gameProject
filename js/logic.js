@@ -8,6 +8,15 @@ window.onload = function() {
 
   function startGame() {
     updateCanvas();
+
+    setInterval(function() {
+      cheese.shuffle();
+      cheese.createCheese();
+    }, 3000);
+
+    setInterval(function() {
+      cat.createKitty();
+    }, 2000);
   }
 };
 
@@ -61,24 +70,24 @@ document.onkeyup = function(event) {
 function updateCanvas() {
   Object.keys(keysPressed).forEach(function(direction) {
     if (keysPressed[direction]) {
-      mouse.move(direction);
+      mouse1.move(direction);
     }
   });
-  if (mouse.isDead(cat.kitty)) {
-    // alert("You've lost!");
-    // location.reload();
-    // Cat.kittyCounter = 0;
-  }
+
   ctx.fillStyle = "black";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  mouse.draw();
-
+  mouse1.draw();
   cat.draw();
   cat.move();
 
   cheese.draw();
   // cheese.move();
+  // if (mouse.isDead(cat.kitty)) {
+  //   alert("You've lost!");
+  //   location.reload();
+  //   Cat.kittyCounter = 0;
+  // }
 
   // if (mouse.eatCheese(cheese.cheeseArray)) {
   //   alert("test");
@@ -88,7 +97,6 @@ function updateCanvas() {
   requestAnimationFrame(updateCanvas);
 }
 
-setInterval(function() {
-  cheese.shuffle();
-  cheese.createCheese();
-}, 2000);
+var cat = new Cat();
+var mouse1 = new Mouse();
+var cheese = new Cheese();
