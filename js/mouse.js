@@ -9,8 +9,6 @@ function Mouse() {
   this.speedX = 5;
   this.speedY = 5;
   this.pointCounter = 0;
-  //this.ctx = ctx;
-  // var color = color;
 }
 
 Mouse.prototype.move = function(direction) {

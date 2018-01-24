@@ -25,30 +25,33 @@ Cat.prototype.createCat = function() {
 };
 
 Cat.prototype.drawImage = function(cheese) {
-  // ctx.drawImage(catImage, cheese.x, cheese.y, 60, 60);
+  ctx.drawImage(catImage, cheese.x, cheese.y, 60, 60);
 };
 
 Cat.prototype.draw = function() {
-  ctx.drawImage(catImage, cheese.x, cheese.y, 60, 60);
-  // this.catArray.forEach(this.drawImage.bind(this));
+  //ctx.drawImage(catImage, cheese.x, cheese.y, 60, 60);
+  this.catArray.forEach(this.drawImage.bind(this));
 };
 
-Cat.prototype.move = function(cat) {
-  cat.x += cat.vx;
-  cat.y += cat.vy;
-  cat.catPosition = [
-    {
-      x: cat.x,
-      y: cat.y,
-      h: 25,
-      w: 25
-    }
-  ];
+Cat.prototype.move = function() {
+  this.catArray.forEach(function(catTab) {
+    catTab.x += catTab.vx;
+    catTab.y += catTab.vy;
 
-  if (this.y + this.vy > canvas.height || this.y + this.vy < 0) {
-    this.vy *= -1;
-  }
-  if (this.x + this.vx > canvas.width || this.x + this.vx < 0) {
-    this.vx *= -1;
-  }
+    Cat.catPosition = [
+      {
+        x: catTab.x,
+        y: catTab.y,
+        h: 25,
+        w: 25
+      }
+    ];
+
+    if (catTab.y + catTab.vy > canvas.height || catTab.y + catTab.vy < 0) {
+      catTab.vy *= -1;
+    }
+    if (catTab.x + catTab.vx > canvas.width || catTab.x + catTab.vx < 0) {
+      catTab.vx *= -1;
+    }
+  });
 };
