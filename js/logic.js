@@ -15,8 +15,8 @@ window.onload = function() {
     }, 3000);
 
     setInterval(function() {
-      cat.createKitty();
-    }, 2000);
+      cat.createCat();
+    }, 4000);
   }
 };
 
@@ -79,20 +79,20 @@ function updateCanvas() {
 
   mouse1.draw();
   cat.draw();
-  cat.move();
+  cat.move(cat.catArray);
 
   cheese.draw();
-  // cheese.move();
-  // if (mouse.isDead(cat.kitty)) {
-  //   alert("You've lost!");
-  //   location.reload();
-  //   Cat.kittyCounter = 0;
-  // }
 
-  // if (mouse.eatCheese(cheese.cheeseArray)) {
-  //   alert("test");
-  //   mouse.addOptionCheese(cheese.name);
-  // }
+  if (mouse1.isDead(cat.catArray)) {
+    alert("You've lost!");
+    location.reload();
+    cat.catCounter = 0;
+  }
+
+  if (mouse1.eatCheese(cheese.cheeseArray)) {
+    //alert("test");
+    mouse1.addOptionCheese(cheese.name);
+  }
 
   requestAnimationFrame(updateCanvas);
 }

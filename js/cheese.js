@@ -1,9 +1,15 @@
+var normalCheese = new Image();
+normalCheese.src = "images/normalCheese.png";
+
+var stinkyCheese = new Image();
+stinkyCheese.src = "images/stinkyCheese.png";
+
 function Cheese() {
   this.x = Math.floor(Math.random() * canvas.width);
   this.y = Math.floor(Math.random() * canvas.height);
-  this.width = 20;
-  this.height = 20;
-  this.titleCheese = ["normal", "beuh"];
+  this.width = 30;
+  this.height = 30;
+  this.titleCheese = ["normal", "stinky"];
   this.name = "";
   this.cheeseArray = [];
 }
@@ -20,11 +26,13 @@ Cheese.prototype.createCheese = function() {
 
 Cheese.prototype.drawImage = function(cheese) {
   if (cheese.name === "normal") {
-    ctx.fillStyle = "yellow";
-    ctx.fillRect(cheese.x, cheese.y, cheese.w, cheese.h);
-  } else if (cheese.name === "beuh") {
-    ctx.fillStyle = "purple";
-    ctx.fillRect(cheese.x, cheese.y, cheese.w, cheese.h);
+    ctx.drawImage(normalCheese, cheese.x, cheese.y, cheese.w, cheese.h);
+    // ctx.fillStyle = "yellow";
+    // ctx.fillRect(cheese.x, cheese.y, cheese.w, cheese.h);
+  } else if (cheese.name === "stinky") {
+    ctx.drawImage(stinkyCheese, cheese.x, cheese.y, cheese.w, cheese.h);
+    // ctx.fillStyle = "purple";
+    // ctx.fillRect(cheese.x, cheese.y, cheese.w, cheese.h);
   }
 };
 
@@ -37,3 +45,5 @@ Cheese.prototype.shuffle = function() {
     Math.floor(Math.random() * this.titleCheese.length)
   ];
 };
+
+// cheese.prototype.clearCheese = function() {};

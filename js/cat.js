@@ -4,41 +4,42 @@ catImage.src = "images/cat.png";
 function Cat() {
   this.x = 50;
   this.y = 50;
+  this.width = 60;
+  this.height = 60;
   this.vx = 5;
   this.vy = 2;
-  this.radius = 25;
-  this.color = "#2e7d32";
-  this.kitty = [];
-  this.kittyCounter = 0;
+  this.catArray = [];
+  this.catPosition = [];
+  this.catCounter = 0;
 }
 
-Cat.prototype.createKitty = function() {
-  this.kitty.push({
+Cat.prototype.createCat = function() {
+  this.catArray.push({
     x: Math.floor(Math.random() * canvas.width),
     y: Math.floor(Math.random() * canvas.height),
+    w: 60,
+    h: 60,
     vx: 5,
-    vy: 2,
-    radius: 25,
-    color: "#2e7d32"
+    vy: 2
   });
 };
 
-Cat.prototype.draw = function() {
-  ctx.drawImage(catImage, this.x, this.y, 60, 60);
-  // ctx.beginPath();
-  // ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
-  // ctx.closePath();
-  // ctx.fillStyle = this.color;
-  // ctx.fill();
+Cat.prototype.drawImage = function(cheese) {
+  // ctx.drawImage(catImage, cheese.x, cheese.y, 60, 60);
 };
 
-Cat.prototype.move = function() {
-  this.x += this.vx;
-  this.y += this.vy;
-  this.kitty = [
+Cat.prototype.draw = function() {
+  ctx.drawImage(catImage, cheese.x, cheese.y, 60, 60);
+  // this.catArray.forEach(this.drawImage.bind(this));
+};
+
+Cat.prototype.move = function(cat) {
+  cat.x += cat.vx;
+  cat.y += cat.vy;
+  cat.catPosition = [
     {
-      x: this.x,
-      y: this.y,
+      x: cat.x,
+      y: cat.y,
       h: 25,
       w: 25
     }

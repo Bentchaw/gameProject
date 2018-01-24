@@ -43,25 +43,25 @@ Mouse.prototype.isColliding = function(array) {
   );
 };
 
-// Mouse.prototype.isDead = function(cat) {
-//   return cat.some(this.isColliding.bind(this));
-// };
+Mouse.prototype.isDead = function(cat) {
+  return cat.some(this.isColliding.bind(this));
+};
 
-// Mouse.prototype.eatCheese = function(cheese) {
-//   return cheese.some(this.isColliding.bind(this));
-// };
+Mouse.prototype.eatCheese = function(cheese) {
+  return cheese.some(this.isColliding.bind(this));
+};
 
-// Mouse.prototype.addOptionCheese = function(cheese) {
-//   if (cheese.name === "normal") {
-//     this.pointCounter += 10;
-//   } else if (cheese.name === "beuh") {
-//     this.pointCounter += 30;
-//     this.speedX = 2;
-//     this.speedY = 2;
-//     setTimeout(function() {
-//       this.speedX = 5;
-//       this.speedY = 5;
-//     }, 5000);
-//   }
-//   return this.pointCounter;
-// };
+Mouse.prototype.addOptionCheese = function(cheese) {
+  if (cheese.name === "normal") {
+    this.pointCounter += 10;
+  } else if (cheese.name === "stinky") {
+    this.pointCounter += 30;
+    this.speedX = 2;
+    this.speedY = 2;
+    setTimeout(function() {
+      this.speedX = 5;
+      this.speedY = 5;
+    }, 5000);
+  }
+  return this.pointCounter;
+};
