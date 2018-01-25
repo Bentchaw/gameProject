@@ -164,5 +164,4 @@ function updateCanvas() {
 
 var cat = new Cat();
 var mouse1 = new Mouse();
-//var mouse2 = new Mouse();
 var cheese = new Cheese();

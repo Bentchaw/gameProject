@@ -9,7 +9,7 @@ function Cat() {
   this.vx = 5;
   this.vy = 2;
   this.catArray = [];
-  //this.catPosition = [];
+
   this.catCounter = 0;
   this.arrayRandomCat = [
     [Math.floor(Math.random() * canvas.width), 0],
@@ -52,15 +52,6 @@ Cat.prototype.move = function() {
   this.catArray.forEach(function(catTab) {
     catTab.x += catTab.vx;
     catTab.y += catTab.vy;
-
-    // Cat.catPosition = [
-    //   {
-    //     x: catTab.x,
-    //     y: catTab.y,
-    //     h: 25,
-    //     w: 25
-    //   }
-    // ];
 
     if (catTab.y + catTab.vy > canvas.height || catTab.y + catTab.vy < 0) {
       catTab.vy *= -1;
