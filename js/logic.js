@@ -131,7 +131,8 @@ function updateCanvas() {
   cheese.draw();
 
   if (mouse1.isDead(cat.catArray)) {
-    alert("You've lost!");
+    // ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
     location.reload();
   }
 
@@ -139,9 +140,9 @@ function updateCanvas() {
   for (i = 0; i < cheese.cheeseArray.length; i++) {
     if (cheese.cheeseArray.length !== 0) {
       if (mouse1.eatCheese(cheese.cheeseArray) === true) {
-        if (cheese.name === "normal") {
+        if (cheese.cheeseArray[i].name === "normal") {
           mouse1.pointCounter += 10;
-        } else if (cheese.name === "stinky") {
+        } else if (cheese.cheeseArray[i].name === "stinky") {
           mouse1.pointCounter += 30;
           mouse1.speedX = 2;
           mouse1.speedY = 2;
@@ -150,10 +151,10 @@ function updateCanvas() {
             mouse1.speedY = 5;
           }, 2000);
         }
-        // cheese.cheeseArray.splice(
-        //   cheese.cheeseArray.indexOf(cheese.cheeseArray[i]),
-        //   1
-        // );
+        cheese.cheeseArray.splice(
+          cheese.cheeseArray.indexOf(cheese.cheeseArray[i]),
+          1
+        );
       }
     }
   }

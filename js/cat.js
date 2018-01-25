@@ -31,8 +31,8 @@ Cat.prototype.createCat = function(valX, valY) {
     //y: Math.floor(Math.random() * canvas.height),
     x: valX,
     y: valY,
-    w: 40,
-    h: 40,
+    w: 30,
+    h: 30,
     vx: 5,
     vy: 2
   });

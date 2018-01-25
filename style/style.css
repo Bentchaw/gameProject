@@ -1,3 +1,9 @@
+@font-face {
+  font-family: myFirstFont;
+  src: url(Cheese_and_Mouse.ttf);
+  font-weight: bold;
+}
+
 body {
   background-image: url("../images/catandmouse.png");
   background-size: 300px;
@@ -11,7 +17,9 @@ body {
 }
 
 #head h1 {
-  background-color: white;
+  /* background-color: yellow; */
+  font-family: myFirstFont;
+  color: black;
 }
 #buttonDisplay {
   text-align: center;
