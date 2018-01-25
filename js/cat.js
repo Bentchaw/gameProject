@@ -9,19 +9,34 @@ function Cat() {
   this.vx = 5;
   this.vy = 2;
   this.catArray = [];
-  this.catPosition = [];
+  //this.catPosition = [];
   this.catCounter = 0;
+  this.arrayRandomCat = [
+    [Math.floor(Math.random() * canvas.width), 0],
+    [Math.floor(Math.random() * canvas.width), canvas.height],
+    [0, Math.floor(Math.random() * canvas.height)],
+    [canvas.height, Math.floor(Math.random() * canvas.width)]
+  ];
 }
 
-Cat.prototype.createCat = function() {
+//display cat from the random side of board
+Cat.prototype.displayRandomCat = function() {
+  var index = Math.floor(Math.random() * this.arrayRandomCat.length);
+  return this.arrayRandomCat[index];
+};
+
+Cat.prototype.createCat = function(valX, valY) {
   this.catArray.push({
-    x: Math.floor(Math.random() * canvas.width),
-    y: Math.floor(Math.random() * canvas.height),
-    w: 60,
-    h: 60,
+    // x: Math.floor(Math.random() * canvas.width),
+    //y: Math.floor(Math.random() * canvas.height),
+    x: valX,
+    y: valY,
+    w: 40,
+    h: 40,
     vx: 5,
     vy: 2
   });
+  this.catCounter += 1;
 };
 
 Cat.prototype.drawImage = function(cheese) {
@@ -38,14 +53,14 @@ Cat.prototype.move = function() {
     catTab.x += catTab.vx;
     catTab.y += catTab.vy;
 
-    Cat.catPosition = [
-      {
-        x: catTab.x,
-        y: catTab.y,
-        h: 25,
-        w: 25
-      }
-    ];
+    // Cat.catPosition = [
+    //   {
+    //     x: catTab.x,
+    //     y: catTab.y,
+    //     h: 25,
+    //     w: 25
+    //   }
+    // ];
 
     if (catTab.y + catTab.vy > canvas.height || catTab.y + catTab.vy < 0) {
       catTab.vy *= -1;

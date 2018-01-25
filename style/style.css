@@ -1,0 +1,29 @@
+body {
+  background-image: url("../images/catandmouse.png");
+  background-size: 300px;
+  background-repeat: repeat;
+}
+
+#head {
+  text-align: center;
+  font-size: 25px;
+  font-style: bold;
+}
+
+#head h1 {
+  background-color: white;
+}
+#buttonDisplay {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#game-board {
+  text-align: center;
+}
+
+#canvas {
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 10px;
+}

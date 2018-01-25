@@ -27,12 +27,8 @@ Cheese.prototype.createCheese = function() {
 Cheese.prototype.drawImage = function(cheese) {
   if (cheese.name === "normal") {
     ctx.drawImage(normalCheese, cheese.x, cheese.y, cheese.w, cheese.h);
-    // ctx.fillStyle = "yellow";
-    // ctx.fillRect(cheese.x, cheese.y, cheese.w, cheese.h);
   } else if (cheese.name === "stinky") {
     ctx.drawImage(stinkyCheese, cheese.x, cheese.y, cheese.w, cheese.h);
-    // ctx.fillStyle = "purple";
-    // ctx.fillRect(cheese.x, cheese.y, cheese.w, cheese.h);
   }
 };
 
@@ -45,5 +41,3 @@ Cheese.prototype.shuffle = function() {
     Math.floor(Math.random() * this.titleCheese.length)
   ];
 };
-
-// cheese.prototype.clearCheese = function() {};
