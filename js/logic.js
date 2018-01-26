@@ -6,6 +6,9 @@ background.src = "images/background.jpg";
 var audio = new Audio();
 audio.src = "images/music.mp3";
 
+var audio2 = new Audio();
+audio2.src = "images/cat.mp3";
+
 window.onload = function() {
   document.getElementById("start-button").onclick = function() {
     startGame();
@@ -23,6 +26,7 @@ window.onload = function() {
     setInterval(function() {
       var random = cat.displayRandomCat();
       cat.createCat(random[0], random[1]);
+      audio2.play();
     }, 5000);
   }
 };
