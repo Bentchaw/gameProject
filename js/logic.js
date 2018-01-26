@@ -1,6 +1,7 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
-
+var background = new Image();
+background.src = "images/background.jpg";
 window.onload = function() {
   document.getElementById("start-button").onclick = function() {
     startGame();
@@ -116,8 +117,9 @@ function updateCanvas() {
     }
   });
 
-  ctx.fillStyle = "white";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  //ctx.fillStyle = "white";
+  //ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(background, 0, 0);
 
   ctx.font = "16px serif";
   ctx.fillStyle = "black";
@@ -131,9 +133,8 @@ function updateCanvas() {
   cheese.draw();
 
   if (mouse1.isDead(cat.catArray)) {
-    // ctx.fillRect(0, 0, canvas.width, canvas.height);
-    // ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
-    location.reload();
+    gameOver();
+    //location.reload();
   }
 
   //Remove the good cheese by mouse
@@ -165,3 +166,33 @@ function updateCanvas() {
 var cat = new Cat();
 var mouse1 = new Mouse();
 var cheese = new Cheese();
+
+function gameOver() {
+  cancelAnimationFrame(cheese);
+  cancelAnimationFrame(cat);
+  cancelAnimationFrame(mouse1);
+  //clearInterval(moveLogs);
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "white";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "black";
+
+  ctx.font = "50px Times New Roman";
+  ctx.fillText("Game Over", canvas.width / 2 - 120, canvas.height / 2);
+  ctx.font = "30px Times New Roman";
+  ctx.fillText(
+    "Player : " + mouse1.pointCounter + " points",
+    canvas.width / 2 - 120,
+    canvas.height / 2 + 60
+  );
+  ctx.fillText(
+    "Max cats on the board : " + cat.catCounter,
+    canvas.width / 2 - 120,
+    canvas.height / 2 + 100
+  );
+  setInterval(function() {
+    location.reload();
+  }, 5000);
+  mouse1.pointCounter();
+}
