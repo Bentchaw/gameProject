@@ -2,12 +2,17 @@ var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var background = new Image();
 background.src = "images/background.jpg";
+
+var audio = new Audio();
+audio.src = "images/music.mp3";
+
 window.onload = function() {
   document.getElementById("start-button").onclick = function() {
     startGame();
   };
 
   function startGame() {
+    audio.play();
     updateCanvas();
 
     setInterval(function() {
